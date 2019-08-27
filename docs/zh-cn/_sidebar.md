@@ -1,2 +1,2 @@
-* [Tag for Dayu Widgets](/zh-cn/README)
+* [](/zh-cn/)
 

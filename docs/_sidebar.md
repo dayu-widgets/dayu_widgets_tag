@@ -1,2 +1,2 @@
-* [Tag for Dayu Widgets](/README.md)
+* [](/README.md)
 

@@ -99,7 +99,9 @@ def slot_add_tag(self, text):
 
 ### 可选择标签
 
+`MCheckableTag`是可以点击选择，取消选择的 `Tag`，继承自 `QCheckBox`，你可以直接将它当作 `QCheckBox`来使用
 
+![tag_checkable_light](../_media/tag_checkable_light.gif)
 
 ```python
 topic_lay = QHBoxLayout()

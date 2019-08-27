@@ -5,4 +5,4 @@
 > PySide 版互联网风格的标签组件
 
 [GitHub](https://github.com/muyr/dayu_widgets_tag)
-[Get Started](/README.md)
+[Get Started](/zh-cn/README.md)
