@@ -10,7 +10,7 @@ MNewTag
 """
 from dayu_widgets.line_edit import MLineEdit
 from dayu_widgets.mixin import cursor_mixin
-from dayu_widgets.qt import Signal, Qt, QWidget, QGridLayout
+from dayu_widgets.qt import Signal, Qt, QWidget, QGridLayout, QEvent
 from dayu_widgets.tool_button import MToolButton
 from dayu_widgets.theme import QssTemplate
 from dayu_widgets import dayu_theme
@@ -30,6 +30,7 @@ class MNewTag(QWidget):
         self._line_edit = MLineEdit().tiny()
         self._line_edit.returnPressed.connect(self._slot_return_pressed)
         self._line_edit.setVisible(False)
+        self._line_edit.installEventFilter(self)
 
         self._main_lay = QGridLayout()
         self._main_lay.setContentsMargins(3, 3, 3, 3)
@@ -68,3 +69,11 @@ class MNewTag(QWidget):
         self._line_edit.setVisible(False)
         self._add_button.setVisible(True)
         return super(MNewTag, self).focusOutEvent(*args, **kwargs)
+
+    def eventFilter(self, widget, event):
+        if widget is self._line_edit:
+            if event.type() == QEvent.Type.KeyPress and event.key() == Qt.Key_Escape:
+                self._line_edit.setVisible(False)
+                self._add_button.setVisible(True)
+
+        return super(MNewTag, self).eventFilter(widget, event)
