@@ -3,10 +3,19 @@
 
 Tag component is a dayu_widgets plugin
 
+## Basic
 ![](docs/_media/basic.png)
+
+## Preset Color
 ![](docs/_media/preset-color.png)
+
+## Custom Color
 ![](docs/_media/custom-color.png)
+
+## Checkable
 ![](docs/_media/tag_checkable_light.gif)
+
+## Add and Delete
 ![](docs/_media/tag_add_delete_light.gif)
 
 
