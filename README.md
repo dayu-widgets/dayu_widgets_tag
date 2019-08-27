@@ -3,6 +3,8 @@
 
 Tag component is a dayu_widgets plugin
 
+See the [document](https://muyr.github.io/dayu_widgets_tag/)
+
 ## Basic
 ![](docs/_media/basic.png)
 
@@ -18,5 +20,3 @@ Tag component is a dayu_widgets plugin
 ## Add and Delete
 ![](docs/_media/tag_add_delete_light.gif)
 
-
-See the [document](https://muyr.github.io/dayu_widgets_tag/)
