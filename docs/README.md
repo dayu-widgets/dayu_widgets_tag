@@ -26,6 +26,8 @@ tag1 = MTag('Tag 1')
 tag2 = MTag('Clickable Tag').clickable()
 tag3 = MTag('Closeable Tag').closeable()
 ```
+[View source code](https://github.com/muyr/dayu_widgets_tag/tree/master/examples/basic.py)
+
 You can use method `clickable` to make the tag clickable, and when you hover the tag, the cursor shape is `Qt.PointHandCursor`. After clicked, the signal `sig_clicked`will be emitted.
 You can use method `closeable` to make the tag closeable.  the. After press the  `x` button closed, the signal`sig_closed`will be emitted.
 
@@ -63,6 +65,8 @@ for index, (text, color) in enumerate([
         preset_color_lay.addWidget(tag)
 ```
 
+[View source code](https://github.com/muyr/dayu_widgets_tag/tree/master/examples/colorful.py)
+
 You can also set it to a hex color string for custom color.
 
 ![custom-color](_media/custom-color.png)
@@ -73,6 +77,8 @@ custom_color_lay.addWidget(MTag('#f00').coloring('#f00'))
 custom_color_lay.addWidget(MTag('#f66').coloring('#f66'))
 custom_color_lay.addWidget(MTag('#f0f').coloring('#f0f').no_border())
 ```
+
+[View source code](https://github.com/muyr/dayu_widgets_tag/tree/master/examples/colorful.py)
 
 ### Add & Remove Dynamically
 
@@ -99,6 +105,8 @@ def slot_add_tag(self, text):
 
 ```
 
+[View source code](https://github.com/muyr/dayu_widgets_tag/tree/master/examples/add_delete.py)
+
 ### Checkable
 
 `MCheckableTag`works like `QCheckBox`, click it to toggle checked state.
@@ -112,6 +120,8 @@ for i in ['Movies', 'Books', 'Music', 'Sports']:
     topic_lay.addWidget(MCheckableTag(text=i))
 topic_lay.addStretch()
 ```
+
+[View source code](https://github.com/muyr/dayu_widgets_tag/tree/master/examples/checkable.py)
 
 ## API
 

@@ -26,6 +26,8 @@ tag1 = MTag('Tag 1')
 tag2 = MTag('Clickable Tag').clickable()
 tag3 = MTag('Closeable Tag').closeable()
 ```
+[查看完整代码](https://github.com/muyr/dayu_widgets_tag/tree/master/examples/basic.py)
+
 可以通过链式调用`clickable`使得标签可以点击，并且鼠标指向标签的时候，鼠标形状会变成小手的形状，当点击的时候有`sig_clicked`信号发射。
 可以通过链式调用`closeable`使得标签可以通过`x`按钮关闭，当关闭之后有`sig_closed`信号发射。
 
@@ -63,6 +65,8 @@ for index, (text, color) in enumerate([
         preset_color_lay.addWidget(tag)
 ```
 
+[查看完整代码](https://github.com/muyr/dayu_widgets_tag/tree/master/examples/colorful.py)
+
 也可以自定义颜色
 
 ![custom-color](../_media/custom-color.png)
@@ -73,6 +77,8 @@ custom_color_lay.addWidget(MTag('#f00').coloring('#f00'))
 custom_color_lay.addWidget(MTag('#f66').coloring('#f66'))
 custom_color_lay.addWidget(MTag('#f0f').coloring('#f0f').no_border())
 ```
+
+[查看完整代码](https://github.com/muyr/dayu_widgets_tag/tree/master/examples/colorful.py)
 
 ### 动态添加和删除
 
@@ -97,6 +103,8 @@ def slot_add_tag(self, text):
 
 ```
 
+[查看完整代码](https://github.com/muyr/dayu_widgets_tag/tree/master/examples/add_delete.py)
+
 ### 可选择标签
 
 `MCheckableTag`是可以点击选择，取消选择的 `Tag`，继承自 `QCheckBox`，你可以直接将它当作 `QCheckBox`来使用
@@ -110,6 +118,8 @@ for i in ['Movies', 'Books', 'Music', 'Sports']:
     topic_lay.addWidget(MCheckableTag(text=i))
 topic_lay.addStretch()
 ```
+
+[查看完整代码](https://github.com/muyr/dayu_widgets_tag/tree/master/examples/checkable.py)
 
 ## API
 
