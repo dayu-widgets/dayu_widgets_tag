@@ -29,7 +29,7 @@ tag3 = MTag('Closeable Tag').closeable()
 可以通过链式调用`clickable`使得标签可以点击，并且鼠标指向标签的时候，鼠标形状会变成小手的形状，当点击的时候有`sig_clicked`信号发射。
 可以通过链式调用`closeable`使得标签可以通过`x`按钮关闭，当关闭之后有`sig_closed`信号发射。
 
-### 样式标签
+### 标签样式
 
 可以通过`set_dayu_color(color)`来设置，也可通过`coloring(color)`链式调用。
 
