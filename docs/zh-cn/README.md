@@ -37,7 +37,7 @@ tag3 = MTag('Closeable Tag').closeable()
 
 我们可以使用`dayu_widgets`中的`dayu_theme`里面的预设颜色。
 
-![preset-color](D:\mu_prj\OPEN_SOURCE\dayu_widgets_tag\docs\_media\preset-color.png)
+![preset-color](../_media/preset-color.png)
 
 ```python
 from dayu_widgets import MFlowLayout, dayu_theme
@@ -65,7 +65,7 @@ for index, (text, color) in enumerate([
 
 也可以自定义颜色
 
-![custom-color](D:\mu_prj\OPEN_SOURCE\dayu_widgets_tag\docs\_media\custom-color.png)
+![custom-color](../_media/custom-color.png)
 
 ```python
 custom_color_lay = MFlowLayout()
@@ -76,7 +76,7 @@ custom_color_lay.addWidget(MTag('#f0f').coloring('#f0f').no_border())
 
 ### 动态添加和删除
 
-![tag_add_delete_light](D:\mu_prj\OPEN_SOURCE\dayu_widgets_tag\docs\_media\tag_add_delete_light.gif)
+![tag_add_delete_light](../_media/tag_add_delete_light.gif)
 
 ```python
 # __init__
