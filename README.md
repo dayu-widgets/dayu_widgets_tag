@@ -3,7 +3,10 @@
 
 Tag component is a dayu_widgets plugin
 
-See the [document](https://muyr.github.io/dayu_widgets_tag/)
+See the document:
+* [中文](https://muyr.github.io/dayu_widgets_tag/#/zh-cn/)
+* [EN](https://muyr.github.io/dayu_widgets_tag/)
+
 
 ## Basic
 ![](docs/_media/basic.png)
