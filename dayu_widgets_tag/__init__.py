@@ -7,6 +7,14 @@
 ###################################################################
 
 
-from new_tag import MNewTag
-from checkable_tag import MCheckableTag
-from tag import MTag
+# Import local modules
+from dayu_widgets_tag.checkable_tag import MCheckableTag
+from dayu_widgets_tag.new_tag import MNewTag
+from dayu_widgets_tag.tag import MTag
+
+
+__all__ = [
+    "MNewTag",
+    "MCheckableTag",
+    "MTag",
+]

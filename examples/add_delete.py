@@ -6,20 +6,26 @@
 # Email : muyanru345@163.com
 ###################################################################
 
-from dayu_widgets_tag import MTag, MNewTag
-from dayu_widgets.qt import QWidget, QHBoxLayout, QApplication, Slot
-from dayu_widgets import dayu_theme, MFlowLayout
+# Import third-party modules
+from dayu_widgets import MFlowLayout
+from dayu_widgets import dayu_theme
+from qtpy.QtWidgets import QApplication
+from qtpy.QtWidgets import QHBoxLayout
+from qtpy.QtWidgets import QWidget
+
+# Import local modules
+from dayu_widgets_tag import MNewTag
+from dayu_widgets_tag import MTag
 
 
-@dayu_theme.deco
-class AddDelete(QWidget):
+class AddDeleteExampleWidget(QWidget):
     def __init__(self, parent=None):
-        super(AddDelete, self).__init__(parent)
+        super(AddDeleteExampleWidget, self).__init__(parent)
         self.tag_lay = MFlowLayout()
-        tag1 = MTag('Unremoveable')
-        tag2 = MTag('Tag2').closeable()
-        tag3 = MTag('Tag3').closeable()
-        add_tag = MNewTag('New Tag')
+        tag1 = MTag("Unremoveable")
+        tag2 = MTag("Tag2").closeable()
+        tag3 = MTag("Tag3").closeable()
+        add_tag = MNewTag("New Tag")
         add_tag.sig_add_tag.connect(self.slot_add_tag)
         self.tag_lay.addWidget(tag1)
         self.tag_lay.addWidget(tag2)
@@ -30,19 +36,17 @@ class AddDelete(QWidget):
         main_lay.addLayout(self.tag_lay)
         self.setLayout(main_lay)
 
-        geo = QApplication.desktop().screenGeometry()
-        self.setGeometry(geo.width() / 4, geo.height() / 4, geo.width() / 2, geo.height() / 2)
-
-    @Slot()
     def slot_add_tag(self, text):
         tag = MTag(text).closeable()
         self.tag_lay.insertWidget(self.tag_lay.count() - 1, tag)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    # Import built-in modules
     import sys
 
     app = QApplication(sys.argv)
-    test = AddDelete()
+    test = AddDeleteExampleWidget()
+    dayu_theme.apply(test)
     test.show()
     sys.exit(app.exec_())

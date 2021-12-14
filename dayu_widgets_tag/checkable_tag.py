@@ -8,10 +8,11 @@
 """
 MCheckableTag
 """
+# Import third-party modules
 from dayu_widgets import dayu_theme
 from dayu_widgets.mixin import cursor_mixin
-from dayu_widgets.qt import QCheckBox
 from dayu_widgets.theme import QssTemplate
+from qtpy.QtWidgets import QCheckBox
 
 
 @cursor_mixin
@@ -21,7 +22,8 @@ class MCheckableTag(QCheckBox):
     def __init__(self, text, parent=None):
         super(MCheckableTag, self).__init__(text, parent)
         self.setCheckable(True)
-        style = QssTemplate('''
+        style = QssTemplate(
+            """
             MCheckableTag{
                 spacing: 8px;
                 padding-top: 4px;
@@ -52,5 +54,6 @@ class MCheckableTag(QCheckBox):
             MCheckableTag:unchecked:hover{
                 color: @primary_5;
             }
-            ''')
+            """
+        )
         self.setStyleSheet(style.substitute(vars(dayu_theme)))
