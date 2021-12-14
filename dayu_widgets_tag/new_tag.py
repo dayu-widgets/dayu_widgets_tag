@@ -8,23 +8,29 @@
 """
 MNewTag
 """
+# Import third-party modules
+from dayu_widgets import dayu_theme
 from dayu_widgets.line_edit import MLineEdit
 from dayu_widgets.mixin import cursor_mixin
-from dayu_widgets.qt import Signal, Qt, QWidget, QGridLayout, QEvent
-from dayu_widgets.tool_button import MToolButton
 from dayu_widgets.theme import QssTemplate
-from dayu_widgets import dayu_theme
+from dayu_widgets.tool_button import MToolButton
+from qtpy.QtCore import QEvent
+from qtpy.QtCore import Qt
+from qtpy.QtCore import Signal
+from qtpy.QtWidgets import QGridLayout
+from qtpy.QtWidgets import QWidget
 
 
 @cursor_mixin
 class MNewTag(QWidget):
     """New Tag input component."""
+
     sig_add_tag = Signal(str)
 
-    def __init__(self, text='New Tag', parent=None):
+    def __init__(self, text="New Tag", parent=None):
         super(MNewTag, self).__init__(parent)
         self.setAttribute(Qt.WA_StyledBackground)
-        self._add_button = MToolButton().text_beside_icon().tiny().svg('add_line.svg')
+        self._add_button = MToolButton().text_beside_icon().tiny().svg("add_line.svg")
         self._add_button.setText(text)
         self._add_button.clicked.connect(self._slot_show_edit)
         self._line_edit = MLineEdit().tiny()
@@ -38,14 +44,15 @@ class MNewTag(QWidget):
         self._main_lay.addWidget(self._line_edit, 0, 0)
         self.setLayout(self._main_lay)
         style = QssTemplate(
-            '''
+            """
             MNewTag{
                 border: 1px dashed @border_color;
             }
             MNewTag MToolButton:hover{
                 border:none;
             }
-            ''')
+            """
+        )
         self.setStyleSheet(style.substitute(vars(dayu_theme)))
 
     def set_completer(self, completer):

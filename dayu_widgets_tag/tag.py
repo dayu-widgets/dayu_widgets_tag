@@ -8,24 +8,31 @@
 """
 MTag
 """
+# Import third-party modules
 from dayu_widgets import dayu_theme
 from dayu_widgets import utils
-from dayu_widgets.qt import QLabel, Signal, QHBoxLayout, QSizePolicy, Property, Qt
 from dayu_widgets.theme import QssTemplate
 from dayu_widgets.tool_button import MToolButton
+from qtpy.QtCore import Property
+from qtpy.QtCore import Qt
+from qtpy.QtCore import Signal
+from qtpy.QtWidgets import QHBoxLayout
+from qtpy.QtWidgets import QLabel
+from qtpy.QtWidgets import QSizePolicy
 
 
 class MTag(QLabel):
     """
     Tag for categorizing or markup.
     """
+
     sig_closed = Signal()
     sig_clicked = Signal()
 
-    def __init__(self, text='', parent=None):
+    def __init__(self, text="", parent=None):
         super(MTag, self).__init__(text=text, parent=parent)
         self._is_pressed = False
-        self._close_button = MToolButton().tiny().svg('close_line.svg').icon_only()
+        self._close_button = MToolButton().tiny().svg("close_line.svg").icon_only()
         self._close_button.clicked.connect(self.sig_closed)
         self._close_button.clicked.connect(self.close)
         self._close_button.setVisible(False)
@@ -39,7 +46,8 @@ class MTag(QLabel):
 
         self._clickable = False
         self._border = True
-        self._border_style = QssTemplate('''
+        self._border_style = QssTemplate(
+            """
             MTag{
                 font-size: 12px;
                 padding: 3px;
@@ -51,8 +59,10 @@ class MTag(QLabel):
             MTag:hover{
                 color: @hover_color;
             }
-            ''')
-        self._no_border_style = QssTemplate('''
+            """
+        )
+        self._no_border_style = QssTemplate(
+            """
             MTag{
                 font-size: 12px;
                 padding: 4px;
@@ -64,7 +74,8 @@ class MTag(QLabel):
             MTag:hover{
                 background-color:@hover_color;
             }
-        ''')
+        """
+        )
         self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
 
         self._color = None
@@ -73,7 +84,9 @@ class MTag(QLabel):
     def minimumSizeHint(self, *args, **kwargs):
         """Override minimumSizeHint for expand width when the close button is visible."""
         orig = super(MTag, self).minimumSizeHint(*args, **kwargs)
-        orig.setWidth(orig.width() + (dayu_theme.tiny if self._close_button.isVisible() else 0))
+        orig.setWidth(
+            orig.width() + (dayu_theme.tiny if self._close_button.isVisible() else 0)
+        )
         return orig
 
     def get_dayu_color(self):
@@ -88,18 +101,24 @@ class MTag(QLabel):
     def _update_style(self):
         if self._border:
             self.setStyleSheet(
-                self._border_style.substitute(background_color=utils.fade_color(self._color, '15%'),
-                                              border_radius=dayu_theme.border_radius_base,
-                                              border_color=utils.fade_color(self._color, '35%'),
-                                              hover_color=utils.generate_color(self._color, 5),
-                                              text_color=self._color))
+                self._border_style.substitute(
+                    background_color=utils.fade_color(self._color, "15%"),
+                    border_radius=dayu_theme.border_radius_base,
+                    border_color=utils.fade_color(self._color, "35%"),
+                    hover_color=utils.generate_color(self._color, 5),
+                    text_color=self._color,
+                )
+            )
         else:
-            self.setStyleSheet(self._no_border_style.substitute(
-                background_color=utils.generate_color(self._color, 6),
-                border_radius=dayu_theme.border_radius_base,
-                border_color=utils.generate_color(self._color, 6),
-                hover_color=utils.generate_color(self._color, 5),
-                text_color=dayu_theme.text_color_inverse))
+            self.setStyleSheet(
+                self._no_border_style.substitute(
+                    background_color=utils.generate_color(self._color, 6),
+                    border_radius=dayu_theme.border_radius_base,
+                    border_color=utils.generate_color(self._color, 6),
+                    hover_color=utils.generate_color(self._color, 5),
+                    text_color=dayu_theme.text_color_inverse,
+                )
+            )
 
     dayu_color = Property(str, get_dayu_color, set_dayu_color)
 

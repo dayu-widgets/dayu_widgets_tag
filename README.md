@@ -7,6 +7,8 @@ See the document:
 * [中文](https://muyr.github.io/dayu_widgets_tag/#/zh-cn/)
 * [EN](https://muyr.github.io/dayu_widgets_tag/)
 
+## Install
+```pip install dayu_widgets_tag```
 
 ## Basic
 ![](docs/_media/basic.png)

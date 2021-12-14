@@ -7,7 +7,7 @@ Tag for categorizing or markup.
 
 
 ## Install
-```pip install dayu-widgets-tag```
+```pip install dayu_widgets_tag```
 
 ## Import Module
 ```python
