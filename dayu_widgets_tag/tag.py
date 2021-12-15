@@ -11,6 +11,7 @@ MTag
 # Import third-party modules
 from dayu_widgets import dayu_theme
 from dayu_widgets import utils
+from dayu_widgets.qt import get_scale_factor
 from dayu_widgets.theme import QssTemplate
 from dayu_widgets.tool_button import MToolButton
 from qtpy.QtCore import Property
@@ -49,8 +50,8 @@ class MTag(QLabel):
         self._border_style = QssTemplate(
             """
             MTag{
-                font-size: 12px;
-                padding: 3px;
+                font-size: @font_size_base@font_unit;
+                padding: @padding_small@unit;
                 color: @text_color;
                 border-radius: @border_radius;
                 border: 1px solid @border_color;
@@ -64,8 +65,8 @@ class MTag(QLabel):
         self._no_border_style = QssTemplate(
             """
             MTag{
-                font-size: 12px;
-                padding: 4px;
+                font-size: @font_size_base@font_unit;
+                padding: @padding@unit;
                 border-radius: @border_radius;
                 color: @text_color;
                 border: 0 solid @border_color;
@@ -99,9 +100,14 @@ class MTag(QLabel):
         self._update_style()
 
     def _update_style(self):
+        scale_x, _ = get_scale_factor()
         if self._border:
             self.setStyleSheet(
                 self._border_style.substitute(
+                    padding_small=3 * scale_x,
+                    font_size_base=dayu_theme.font_size_base,
+                    font_unit=dayu_theme.font_unit,
+                    unit=dayu_theme.unit,
                     background_color=utils.fade_color(self._color, "15%"),
                     border_radius=dayu_theme.border_radius_base,
                     border_color=utils.fade_color(self._color, "35%"),
@@ -112,6 +118,10 @@ class MTag(QLabel):
         else:
             self.setStyleSheet(
                 self._no_border_style.substitute(
+                    padding=4 * scale_x,
+                    font_size_base=dayu_theme.font_size_base,
+                    font_unit=dayu_theme.font_unit,
+                    unit=dayu_theme.unit,
                     background_color=utils.generate_color(self._color, 6),
                     border_radius=dayu_theme.border_radius_base,
                     border_color=utils.generate_color(self._color, 6),
